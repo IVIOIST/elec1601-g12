@@ -87,7 +87,7 @@ void obstacleAvoidance(int left, int mid, int right) {
         moveRobot(50, 50);
     }
     if (left > right && mid <= 2){
-        //左边没有，右边有，前面有，左转
+        //左边没有，右边有，前面有，左转13
         moveRobot(50, -50);
     }
 
