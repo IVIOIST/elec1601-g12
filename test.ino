@@ -73,46 +73,34 @@ void loop() {
 }
 
 void obstacleAvoidance(int left, int mid, int right) {
-    if (left > right && mid <= 2){
-        //turn left
-        moveRobot(30, -30);
+    
+    if (left > right && mid >2 && left < 5){
+        //左边多，右边少，前面没有，左转
+        moveRobot(50, 20);
     }
-    if (left > right && mid >2){
-        //左边没有，右边有，前面没有go straight
+    if(right > left && mid > 2 && right < 5 ){
+        //左边少，右边多，前面没有，右转
+        moveRobot(20, 50); 
+    }
+    if (left > right && mid >2 && left == 5){
+        //左边没有，右边有，前面没有，直走
         moveRobot(50, 50);
     }
-
-
-
-
-
-  if (mid <= CLOSE_OBSTACLE_THRESHOLD) {
-    // Obstacle very close in front, reverse
-    moveRobot(-50, -50);
-    delay(500);
-  } else if (mid <= OBSTACLE_THRESHOLD) {
-    // Obstacle detected in front, check sides
-    if (left > right) {
-      // More space on the left, turn left
-      moveRobot(30, -30);
-    } else if (right > left) {
-      // More space on the right, turn right
-      moveRobot(-30, 30); 
-    } else {
-      // Equal space on both sides or both sides blocked, turn around
-      moveRobot(50, -50);
+    if (left > right && mid <= 2){
+        //左边没有，右边有，前面有，左转
+        moveRobot(50, -50);
     }
-    delay(300);
-  } else if (left <= OBSTACLE_THRESHOLD) {
-    // Obstacle on the left, veer right
-    moveRobot(20, 50);
-  } else if (right <= OBSTACLE_THRESHOLD) {
-    // Obstacle on the right, veer left
-    moveRobot(50, 20);
-  } else {
-    // No obstacles, move forward
-    moveRobot(50, 50);
-  }
+
+    if(right > left && mid > 2 && right == 5 ){
+        //左边有，右边没有，前面没有，右转
+        moveRobot(-50, 50); 
+    }
+    
+    if(mid <= 2){
+        //前面有，右转
+        moveRobot(-50, 50); 
+    }
+
 }
 
 int irDetect(int irLedPin, int irReceiverPin, long frequency) {
