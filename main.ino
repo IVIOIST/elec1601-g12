@@ -28,6 +28,7 @@ const int SERVO_MAX_REVERSE = 1700;
 // Thresholds for obstacle detection
 const int OBSTACLE_THRESHOLD = 3; 
 const int CLOSE_OBSTACLE_THRESHOLD = 1; 
+const int MID_OBSTACLE_THRESHOLD = 2;
 
 void setup() {
   pinMode(leftIrReceiverPin, INPUT);
@@ -77,7 +78,7 @@ void obstacleAvoidance(int left, int mid, int right) {
     // Obstacle very close in front, reverse
     moveRobot(-50, -50);
     delay(500);
-  } else if (mid <= OBSTACLE_THRESHOLD) {
+  } else if (mid <= MID_OBSTACLE_THRESHOLD) {
     // Obstacle detected in front, check sides
     if (left > right) {
       // More space on the left, turn left
