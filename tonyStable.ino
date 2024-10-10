@@ -86,19 +86,22 @@ void obstacleAvoidance(int left, int mid, int right) {
         //左边没有，右边有，前面没有，直走
         moveRobot(50, 50);
     }
+
+    if (right > left && mid >2 && right == 5){
+        //左边有，右边没有，前面没有，直走
+        moveRobot(50, 50);
+    }
     if (left > right && mid <= 2){
-        //左边没有，右边有，前面有，左转13
+        //左边没有，右边有，前面有，左转
         moveRobot(50, -50);
+        delay(500);
     }
 
-    if(right > left && mid > 2 && right == 5 ){
-        //左边有，右边没有，前面没有，右转
-        moveRobot(-50, 50); 
-    }
     
-    if(mid <= 2){
+    if(right > left && mid <= 2){
         //前面有，右转
         moveRobot(-50, 50); 
+        delay(500);
     }
 
 }

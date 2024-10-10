@@ -9,3 +9,4 @@
       at a dead end, maybe we can implement logic where if its stuck in the loop it will reverse until it no longer does
 - tweak the sensitivity of the distance threshold
     - currently in a straight line, the robot will wiggle, this may be because the sensitivity of the distance threshold is too low causing it to lose track of the walls
+### 23/09/2024
